@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مطعم الديار — المنيو</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F6EEDD;
+    --ink:#2C1D12;
+    --saffron:#C4841F;
+    --saffron-deep:#9C6714;
+    --pepper:#8C2F2F;
+    --clay:#DCC49A;
+    --herb:#5C6B32;
+  }
+  body{
+    font-family:'Cairo', sans-serif;
+    background-color: var(--ivory);
+    color: var(--ink);
+  }
+  .display{ font-family:'Lalezar', 'Cairo', sans-serif; }
+  .leader{
+    flex:1;
+    border-bottom: 2px dotted rgba(44,29,18,0.35);
+    margin: 0 10px;
+    height: 10px;
+  }
+  .section-divider{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .section-divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background: linear-gradient(to left, rgba(196,132,31,0), rgba(196,132,31,0.55));
+  }
+  .pill-nav::-webkit-scrollbar{ display:none; }
+  .pill-nav{ scrollbar-width: none; -ms-overflow-style: none; }
+  .hero-fade{
+    background: linear-gradient(to top, rgba(30,18,8,0.92) 0%, rgba(30,18,8,0.45) 55%, rgba(30,18,8,0.05) 100%);
+  }
+  @keyframes riseIn{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+  .rise{ animation: riseIn .7s ease-out both; }
+  .rise-1{ animation-delay: .05s; }
+  .rise-2{ animation-delay: .18s; }
+  .rise-3{ animation-delay: .3s; }
+  @media (prefers-reduced-motion: reduce){
+    .rise{ animation: none; }
+  }
+  .item-row:focus-within, .pill-btn:focus-visible{
+    outline: 2px solid var(--saffron-deep);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  .soldout-badge{
+    background: var(--pepper);
+  }
+</style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Hero -->
+  <header class="relative h-[62vw] max-h-[420px] min-h-[300px] w-full overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=80"
+         alt=""
+         class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 hero-fade"></div>
+    <div class="relative z-10 h-full flex flex-col justify-end px-5 pb-6">
+      <p class="rise rise-1 text-[#F0DDB8] text-sm mb-1">أهلاً بيك في</p>
+      <h1 class="rise rise-2 display text-white text-5xl leading-none mb-2">مطعم الديار</h1>
+      <p class="rise rise-3 text-[#EAD9BC] text-sm max-w-xs">نكهات بيتنا الأصيلة، من مطبخنا لطاولتك</p>
+    </div>
+  </header>
+
+  <!-- Sticky category pills -->
+  <nav class="sticky top-0 z-20 bg-[var(--ivory)]/95 backdrop-blur border-b border-[var(--clay)]">
+    <div class="pill-nav flex gap-2 overflow-x-auto px-4 py-3">
+      <a href="#mokabbelat" class="pill-btn whitespace-nowrap px-4 py-1.5 rounded-full bg-[var(--saffron)] text-white text-sm">المقبلات</a>
+      <a href="#mashawi" class="pill-btn whitespace-nowrap px-4 py-1.5 rounded-full border border-[var(--clay)] text-sm">المشاوي</a>
+      <a href="#tabkhat" class="pill-btn whitespace-nowrap px-4 py-1.5 rounded-full border border-[var(--clay)] text-sm">أطباق طبخ</a>
+      <a href="#mashroubat" class="pill-btn whitespace-nowrap px-4 py-1.5 rounded-full border border-[var(--clay)] text-sm">المشروبات</a>
+      <a href="#halawiyat" class="pill-btn whitespace-nowrap px-4 py-1.5 rounded-full border border-[var(--clay)] text-sm">الحلو</a>
+    </div>
+  </nav>
+
+  <main class="px-5 pt-6 pb-16 max-w-md mx-auto">
+
+    <!-- Section: مقبلات -->
+    <section id="mokabbelat" class="mb-9 scroll-mt-16">
+      <div class="section-divider mb-4">
+        <h2 class="display text-2xl text-[var(--saffron-deep)]">المقبلات</h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="item-row flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=200&q=80" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" alt="فول مدمس">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline">
+              <h3 class="font-semibold truncate">فول مدمس</h3>
+              <span class="leader"></span>
+              <span class="font-semibold text-[var(--saffron-deep)]">8 ر.س</span>
+            </div>
+            <p class="text-xs text-[var(--ink)]/60 mt-0.5">فول بلدي، طحينة، زيت زيتون، شطة بيتية</p>
+          </div>
+        </div>
+
+        <div class="item-row flex items-center gap-3 opacity-50">
+          <div class="relative w-16 h-16 flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1615937691194-97dbd4d3d8a5?w=200&q=80" class="w-16 h-16 rounded-xl object-cover grayscale" alt="طعمية">
+            <span class="soldout-badge absolute -top-1.5 -right-1.5 text-white text-[10px] px-2 py-0.5 rounded-full">نفذت الكمية</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline">
+              <h3 class="font-semibold truncate">طعمية بالطحينة</h3>
+              <span class="leader"></span>
+              <span class="font-semibold">6 ر.س</span>
+            </div>
+            <p class="text-xs text-[var(--ink)]/60 mt-0.5">مقرمشة من الخارج، طرية من الداخل</p>
+          </div>
+        </div>
+
+        <div class="item-row flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1625944230945-1b7dd3b949ab?w=200&q=80" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" alt="سلطة">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline">
+              <h3 class="font-semibold truncate">سلطة بلدي</h3>
+              <span class="leader"></span>
+              <span class="font-semibold text-[var(--saffron-deep)]">10 ر.س</span>
+            </div>
+            <p class="text-xs text-[var(--ink)]/60 mt-0.5">طماطم، خيار، بصل، ليمون بلدي</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: مشاوي -->
+    <section id="mashawi" class="mb-9 scroll-mt-16">
+      <div class="section-divider mb-4">
+        <h2 class="display text-2xl text-[var(--saffron-deep)]">المشاوي</h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="item-row flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&q=80" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" alt="كباب">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline">
+              <h3 class="font-semibold truncate">كباب لحم</h3>
+              <span class="leader"></span>
+              <span class="font-semibold text-[var(--saffron-deep)]">32 ر.س</span>
+            </div>
+            <p class="text-xs text-[var(--ink)]/60 mt-0.5">لحم مفروم طازج، بهارات بيتية، يقدم مع الأرز</p>
+          </div>
+        </div>
+
+        <div class="item-row flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1598515213692-5f252f3f4ce6?w=200&q=80" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" alt="فراخ مشوية">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline">
+              <h3 class="font-semibold truncate">نص فروج مشوي</h3>
+              <span class="leader"></span>
+              <span class="font-semibold text-[var(--saffron-deep)]">28 ر.س</span>
+            </div>
+            <p class="text-xs text-[var(--ink)]/60 mt-0.5">متبل بالأعشاب، يقدم مع الثوم والخبز</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: أطباق طبخ -->
+    <section id="tabkhat" class="mb-9 scroll-mt-16">
+      <div class="section-divider mb-4">
+        <h2 class="display text-2xl text-[var(--saffron-deep)]">أطباق طبخ</h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="item-row flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=200&q=80" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" alt="ملوخية">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline">
+              <h3 class="font-semibold truncate">ملوخية بالفراخ</h3>
+              <span class="leader"></span>
+              <span class="font-semibold text-[var(--saffron-deep)]">30 ر.س</span>
+            </div>
+            <p class="text-xs text-[var(--ink)]/60 mt-0.5">طبخة بيتية على أصولها، تقدم مع الأرز</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: مشروبات -->
+    <section id="mashroubat" class="mb-9 scroll-mt-16">
+      <div class="section-divider mb-4">
+        <h2 class="display text-2xl text-[var(--saffron-deep)]">المشروبات</h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="item-row flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=200&q=80" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" alt="عصير">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline">
+              <h3 class="font-semibold truncate">عصير قمر الدين</h3>
+              <span class="leader"></span>
+              <span class="font-semibold text-[var(--saffron-deep)]">9 ر.س</span>
+            </div>
+            <p class="text-xs text-[var(--ink)]/60 mt-0.5">طبيعي 100%، بدون سكر مضاف</p>
+          </div>
+        </div>
+
+        <div class="item-row flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=200&q=80" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" alt="شاي">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline">
+              <h3 class="font-semibold truncate">شاي بالحليب</h3>
+              <span class="leader"></span>
+              <span class="font-semibold text-[var(--saffron-deep)]">5 ر.س</span>
+            </div>
+            <p class="text-xs text-[var(--ink)]/60 mt-0.5">يقدم دافئ، بالهيل</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: حلويات -->
+    <section id="halawiyat" class="mb-4 scroll-mt-16">
+      <div class="section-divider mb-4">
+        <h2 class="display text-2xl text-[var(--saffron-deep)]">الحلو</h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="item-row flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?w=200&q=80" class="w-16 h-16 rounded-xl object-cover flex-shrink-0" alt="كنافة">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-baseline">
+              <h3 class="font-semibold truncate">كنافة بالجبن</h3>
+              <span class="leader"></span>
+              <span class="font-semibold text-[var(--saffron-deep)]">15 ر.س</span>
+            </div>
+            <p class="text-xs text-[var(--ink)]/60 mt-0.5">تقدم سخنة، بالقطر البلدي</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="text-center pb-8 pt-2">
+    <p class="text-xs text-[var(--ink)]/45">مطعم الديار · القوائم تُحدَّث لحظياً</p>
+  </footer>
+
+</body>
+</html>
